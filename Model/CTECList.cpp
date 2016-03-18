@@ -73,8 +73,7 @@ void CTECList<Type>::addAtIndex(int index, Type value)
 template<class Type>
 Type CTECList<Type>::getFront()
 {
-assert(Head != nullptr);
-return Head;
+    return Head->getValue();
 }
 template<class Type>
 Type CTECList<Type>::getEnd()

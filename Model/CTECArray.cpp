@@ -145,7 +145,7 @@ int CTECArray<Type> :: nextIndexOf(int startingIndex, Type searchValue)
     return indexNotFound;
 }
 
-}
+
 template<class Type>
 void CTECArray<Type>::set(int position, const Type& value)
 {

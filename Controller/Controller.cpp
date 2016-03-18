@@ -29,15 +29,10 @@ Controller::~Controller()
 {
 
 }
-void Controller :: testLists()
-{
-	numbers->addToFront(3);
-	numbers->addToEnd(8);
-	cout << "end should be 8" << numbers->getEnd() << endl;
-}
 //called when started
 void Controller :: start()
 {
+    testLists();
 arrayTimer.startTimer();
 
 	for(int index = 0; index < notHipsterInts->getSize(); index++)
@@ -72,3 +67,11 @@ arrayTimer.startTimer();
 	//	cout << "the content at index " << index << "are " << myStringArray->get(index) << endl;
 	//}
 }
+//Tests
+void Controller :: testLists()
+{
+    CTECList<int> CList;
+    numbers->addToFront(3);
+    cout << "the front should return 3" << CList.getFront() << endl;
+}
+

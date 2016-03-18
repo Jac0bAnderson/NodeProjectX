@@ -15,8 +15,8 @@
 #include "../Model/Node.cpp"
 #include "../Model/ArrayNode.cpp"
 #include "../Model/CTECArray.cpp" 
-//#include "../Model/CTECList.cpp"
-//#include "../Model/CTECList.h"
+#include "../Model/CTECList.cpp"
+#include "../Model/CTECList.h"
 
 
 using namespace std;
@@ -28,7 +28,7 @@ private:
 	//ArrayNode<string>stringArrayNode;
  //  ArrayNo<string> otherArrayNode;
 	//CTECArray<string> * myStringArray;
-	CTECList<int> numbers;
+	CTECList<int> * numbers;
 	CTECArray<int> * notHipsterInts;
 	Timer arrayTimer;
 	void testLists();

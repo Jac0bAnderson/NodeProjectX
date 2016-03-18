@@ -30,6 +30,7 @@ Type removeFromFront();
 Type removeFromEnd();
 Type removeFromIndex(int index, Type value);
 Type set(int index, Type value);
+int indexOf(Type searchValue);
 };
 
 

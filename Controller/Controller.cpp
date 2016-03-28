@@ -71,7 +71,11 @@ arrayTimer.startTimer();
 void Controller :: testLists()
 {
     CTECList<int> CList;
+    
     numbers->addToFront(3);
     cout << "the front should return 3" << CList.getFront() << endl;
+    
+    numbers->addToEnd(6);
+    cout << "the end should return 6" << CList.getEnd() << endl;
 }
 

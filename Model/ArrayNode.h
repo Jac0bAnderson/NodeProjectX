@@ -15,8 +15,9 @@ class ArrayNode: public Node<Type>
 {
 	//the private of the ArrayNode.cpp
 private:
-
+    
 	ArrayNode * next;
+    
 
 	//the public of the ArrayNode.cpp
 public:

@@ -164,3 +164,22 @@ for (int spot = 0; spot <= position; spot++)
 }
 
 }
+template<class Type>
+void CTECArray<Type>:: selectionSort()
+{
+    int innerLoop, outerLoop;
+    for(outerLoop =0; outerLoop < this->size()-1; outerLoop++)
+    {
+        int selectedMinimum = outerLoop;
+        for(innerLoop = outerLoop+1; innerLoop < size(); innerLoop++)
+        {
+            if(get(innerLoop)< get(selectedMinimum))
+            {
+                selectedMinimum = innerLoop;
+            }
+        }
+    }
+    if(selectedMinimum != outerLoop)
+    {
+        swap(outerLoop, selectedMinimum);
+    }

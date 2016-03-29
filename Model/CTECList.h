@@ -16,6 +16,7 @@ int size;
 ArrayNode<Type> *Head;
 ArrayNode<Type> *end;
 void calculatedSize();
+void swap(int indexOne, int indexTwo);
 public:
 CTECList();
 ~CTECList();
@@ -31,6 +32,8 @@ Type removeFromEnd();
 Type removeFromIndex(int index, Type value);
 Type set(int index, Type value);
 int indexOf(Type searchValue);
+void selectionSort();
+
 };
 
 

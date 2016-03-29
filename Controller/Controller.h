@@ -32,6 +32,7 @@ private:
 	CTECArray<int> * notHipsterInts;
 	Timer arrayTimer;
 	void testLists();
+    void checkSort();
 
 	//the public things of the controller.cpp
  public:

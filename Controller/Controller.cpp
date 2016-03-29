@@ -7,7 +7,7 @@
 
 //Import section
 #include "Controller.h"//imports the controllers header file
-
+#include <stdlib.h>
 #include<string>
 
 
@@ -67,6 +67,22 @@ arrayTimer.startTimer();
 	//	cout << "the content at index " << index << "are " << myStringArray->get(index) << endl;
 	//}
 }
+void Controller :: checkSort()
+{
+    //Create an array and list
+    //fill with random data
+    //sort and time
+    //repeat with ordered data
+    //print results
+    CTECArray<int> numbersInArray(5000);
+    CTECList<int> numberInList;
+    for(int spot= 0; spot <5000; spot++)
+    {
+        int randomValue = rand();
+        numbersInArray.set(spot, randomValue);
+        numbersInList.addToFront(randomValue);
+    }
+}
 //Tests
 void Controller :: testLists()
 {
@@ -78,4 +94,3 @@ void Controller :: testLists()
     numbers->addToEnd(6);
     cout << "the end should return 6" << CList.getEnd() << endl;
 }
-

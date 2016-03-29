@@ -76,12 +76,22 @@ void Controller :: checkSort()
     //print results
     CTECArray<int> numbersInArray(5000);
     CTECList<int> numberInList;
+    int cPlusPlusArray[5000];
     for(int spot= 0; spot <5000; spot++)
     {
         int randomValue = rand();
         numbersInArray.set(spot, randomValue);
         numbersInList.addToFront(randomValue);
+        cPlusPlusArray[spot] = randomValue;
     }
+    
+    Timer listTime;
+    listTimer.startTimer();
+    numbersInList.selectionSort();
+    sortTimer.stopTimer();
+    sortTimer.displayTimerInformation();
+    sortTimer.resetTimer();
+    sortTimer.startTimer();
 }
 //Tests
 void Controller :: testLists()

@@ -28,11 +28,15 @@ private:
 	//ArrayNode<string>stringArrayNode;
  //  ArrayNo<string> otherArrayNode;
 	//CTECArray<string> * myStringArray;
+    int * mergeData;
 	CTECList<int> * numbers;
 	CTECArray<int> * notHipsterInts;
 	Timer arrayTimer;
 	void testLists();
     void checkSort();
+    void doMergeSort();
+    void mergeSort(int dataArray [] , int size);
+    void merge(int data [], int sizeOne int sizeTwo);
 
 	//the public things of the controller.cpp
  public:

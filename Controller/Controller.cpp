@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include<string>
 
-
+using namespace std;
 Controller::Controller()
 {
 //this->	intNode.setValue(5);
@@ -66,6 +66,28 @@ arrayTimer.startTimer();
 	//{
 	//	cout << "the content at index " << index << "are " << myStringArray->get(index) << endl;
 	//}
+}
+void Controller :: sortData()
+{
+ 
+}
+void Controller :: doMergeSort()
+{
+    mergeData = new int [5000];
+    for(int spot =0; spot< 5000; spot++)
+    {
+        int myRandom = rand();
+        mergeData[spot] = myRandom;
+    }
+    mergeSort(mergeData, 5000);
+}
+void Controller :: mergeSort(int dataArray [] , int size)
+{
+    
+}
+void Controller :: merge(int data [], int sizeOne int sizeTwo)
+{
+    
 }
 void Controller :: checkSort()
 {

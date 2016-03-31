@@ -79,15 +79,49 @@ void Controller :: doMergeSort()
         int myRandom = rand();
         mergeData[spot] = myRandom;
     }
+    Timer.mergeTimer;
+    merTimer.startTimer();
     mergeSort(mergeData, 5000);
+    mergeTimer.stopTimer();
+    mergeTimer.displayTimerInformation();
 }
 void Controller :: mergeSort(int dataArray [] , int size)
 {
     
+    
 }
 void Controller :: merge(int data [], int sizeOne int sizeTwo)
 {
-    
+    int * temp;
+    int copied = 0;
+    int copied1 =0;
+    int copied2 = 0;
+    int index;
+    temp new int [sizeOne + sizeTwo];
+    while ((copied1 < sizeOne) && (copied2 < sizeTwo))
+    {
+        if(data[copied1] < data + sizeOne) [copied2] )
+        {
+            temp[copied++] = data [copied1++];
+        }
+        else
+        {
+            temp[copied++] = (data + sizeOne) [copied2++];
+        }
+    }
+    while(copied < sizeOne)
+    {
+        temp[copied++] = data[copied1++];
+    }
+    while(copied2 < sizeTwo)
+    {
+        temp[copied++] = (data + sizeTwo) [copied2++];
+    }
+    for(index =0; index < sizeOne + sizeTwo; indexx++)
+    {
+        data[index] = temp[index];
+    }
+    delete [] temp;
 }
 void Controller :: checkSort()
 {

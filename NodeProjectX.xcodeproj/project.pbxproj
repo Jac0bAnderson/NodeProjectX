@@ -14,6 +14,7 @@
 		465AE20D1C99A53D00DE807B /* CTECList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 465AE2031C99A53D00DE807B /* CTECList.cpp */; };
 		465AE20E1C99A53D00DE807B /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 465AE2051C99A53D00DE807B /* Node.cpp */; };
 		465AE20F1C99A53D00DE807B /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 465AE2071C99A53D00DE807B /* Timer.cpp */; };
+		4680F93B1CBBE69F000996E3 /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4680F9391CBBE69F000996E3 /* TreeNode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,8 @@
 		465AE2061C99A53D00DE807B /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		465AE2071C99A53D00DE807B /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
 		465AE2081C99A53D00DE807B /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		4680F9391CBBE69F000996E3 /* TreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreeNode.cpp; sourceTree = "<group>"; };
+		4680F93A1CBBE69F000996E3 /* TreeNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TreeNode.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				465AE2061C99A53D00DE807B /* Node.h */,
 				465AE2071C99A53D00DE807B /* Timer.cpp */,
 				465AE2081C99A53D00DE807B /* Timer.h */,
+				4680F9391CBBE69F000996E3 /* TreeNode.cpp */,
+				4680F93A1CBBE69F000996E3 /* TreeNode.hpp */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				465AE20A1C99A53D00DE807B /* Runner.cpp in Sources */,
 				465AE20E1C99A53D00DE807B /* Node.cpp in Sources */,
 				465AE20F1C99A53D00DE807B /* Timer.cpp in Sources */,
+				4680F93B1CBBE69F000996E3 /* TreeNode.cpp in Sources */,
 				465AE2091C99A53D00DE807B /* Controller.cpp in Sources */,
 				465AE20B1C99A53D00DE807B /* ArrayNode.cpp in Sources */,
 				465AE20D1C99A53D00DE807B /* CTECList.cpp in Sources */,

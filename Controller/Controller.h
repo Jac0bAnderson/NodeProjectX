@@ -28,6 +28,7 @@ private:
 	//ArrayNode<string>stringArrayNode;
  //  ArrayNo<string> otherArrayNode;
 	//CTECArray<string> * myStringArray;
+    
     int * mergeData;
 	CTECList<int> * numbers;
 	CTECArray<int> * notHipsterInts;
@@ -35,8 +36,13 @@ private:
 	void testLists();
     void checkSort();
     void doMergeSort();
+    void doQuickSort();
     void mergeSort(int dataArray [] , int size);
     void merge(int data [], int sizeOne int sizeTwo);
+    void quickSort(int data[], int size);
+    void partition(int size, int last);
+    int swap(int first, int second);
+    
 
 	//the public things of the controller.cpp
  public:

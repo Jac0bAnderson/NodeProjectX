@@ -32,8 +32,7 @@ Controller::~Controller()
 //called when started
 void Controller :: start()
 {
-    testLists();
-arrayTimer.startTimer();
+    doMergeSort();
 
 	for(int index = 0; index < notHipsterInts->getSize(); index++)
 	{
@@ -67,6 +66,57 @@ arrayTimer.startTimer();
 	//	cout << "the content at index " << index << "are " << myStringArray->get(index) << endl;
 	//}
 }
+void Controller:: swap(int first, int second)
+{
+    int temp = mergeData[first];
+    mergeData[first] = mergeData[last];
+    mergeData[last];
+}
+int Controller:: partition(int size, int last)
+{
+    int pivot;
+    int index, smallIndex;
+    swap(first, (first+last)/2);
+    pivot = mergeData[first];
+    for(index = first +1; index <= last, index++);
+    {
+        if(mergeData[index]< pivot)
+        {
+            smallIndex++;
+            swap(smallIndex, index);
+        }
+    }
+    swap(first, smallIndex);
+    return smallIndex;
+}
+void Controller :: doQuick()
+{
+    mergeData = new int [5000];
+    for(int spot =0; spot< 5000; spot++)
+    {
+        int myRandom = rand();
+        mergeData[spot] = myRandom;
+    }
+    Timer.mergeTimer;
+    merTimer.startTimer();
+    quickSort(mergeData, 49999);
+    mergeTimer.stopTimer();
+    mergeTimer.displayTimerInformation();
+    delete [] mergeData;
+
+}
+void Controller:: quickSort(int data[], int size)
+{
+    int pivotIndex;
+    
+    if(first < last)
+    {
+        pivotIndex = partition(first, last);
+        quickSort(data, pivotIndex-1);
+        quickSort(pivotIndex + 1, last);
+        
+    }
+}
 void Controller :: sortData()
 {
  
@@ -81,14 +131,24 @@ void Controller :: doMergeSort()
     }
     Timer.mergeTimer;
     merTimer.startTimer();
-    mergeSort(mergeData, 5000);
+    quickSort(mergeData, 49999);
     mergeTimer.stopTimer();
     mergeTimer.displayTimerInformation();
+    delete [] mergeData;
 }
 void Controller :: mergeSort(int dataArray [] , int size)
 {
     
-    
+    int sizeOne;
+    int sizeTwo;
+    if(size > 1)
+    {
+        sizeOne = size/2;
+        sizeTwo = size-sizeOne;
+        mergeSort(data, sizeOne);
+        mergeSort((data+sizeOne), sizeTwo);
+        merge(data, sizeOne, sizeTwo);
+    }
 }
 void Controller :: merge(int data [], int sizeOne int sizeTwo)
 {

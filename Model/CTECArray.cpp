@@ -178,8 +178,10 @@ void CTECArray<Type>:: selectionSort()
                 selectedMinimum = innerLoop;
             }
         }
+        if(selectedMinimum != outerLoop)
+        {
+            swap(outerLoop, selectedMinimum);
+        }
     }
-    if(selectedMinimum != outerLoop)
-    {
-        swap(outerLoop, selectedMinimum);
-    }
+    
+}

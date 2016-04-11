@@ -36,4 +36,23 @@ TreeNode<Type> :: TreeNode(const Type & value , TreeNode<Type> * parent) : Node<
     this-> setParent(parent);
     
 }
-
+template <class Type>
+void TreeNode<Type> :: setLeftChild(TreeNode<Type> * leftChild)
+{
+    this->TreeNode = leftChild;
+}
+template <class Type>
+void TreeNode<Type> :: setRightChild(TreeNode<Type> * rightChild)
+{
+    this->TreeNode = rightChild;
+}
+template <class Type>
+void TreeNode<Type> :: setParent(TreeNode<Type> * parent)
+{
+    this->TreeNode = parent;
+}
+template <class Type>
+TreeNode<Type> * TreeNode<Type> :; getLeftChild()
+{
+    return this->leftchild;
+}

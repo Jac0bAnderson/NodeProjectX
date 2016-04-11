@@ -16,7 +16,6 @@
 #include "../Model/ArrayNode.cpp"
 #include "../Model/CTECArray.cpp" 
 #include "../Model/CTECList.cpp"
-#include "../Model/CTECList.h"
 
 
 using namespace std;
@@ -38,10 +37,10 @@ private:
     void doMergeSort();
     void doQuickSort();
     void mergeSort(int dataArray [] , int size);
-    void merge(int data [], int sizeOne int sizeTwo);
+    void merge(int data [], int sizeOne, int sizeTwo);
     void quickSort(int data[], int size);
-    void partition(int size, int last);
-    int swap(int first, int second);
+    int partition(int size, int last);
+    void swap(int first, int second);
     
 
 	//the public things of the controller.cpp

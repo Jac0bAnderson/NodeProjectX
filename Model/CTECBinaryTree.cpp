@@ -54,8 +54,8 @@ void CTECBinaryTree <Type> :: calculateSize(TreeNode <Type> * currentNode)
 {
     if (currentNode != nullptr)
     {
-        postorderTraversal(currentNode -> getLeftChild());
-        postorderTraversal(currentNode -> getRightChild());
+        calculateSize(currentNode -> getLeftChild());
+        calculateSize(currentNode -> getRightChild());
         size++;
         
     }

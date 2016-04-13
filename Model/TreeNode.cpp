@@ -52,7 +52,7 @@ void TreeNode<Type> :: setParent(TreeNode<Type> * parent)
     this->TreeNode = parent;
 }
 template <class Type>
-TreeNode<Type> * TreeNode<Type> :; getLeftChild()
+TreeNode<Type> * TreeNode<Type> :: getLeftChild()
 {
     return this->leftchild;
 }

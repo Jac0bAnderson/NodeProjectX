@@ -22,6 +22,7 @@ private:
     bool contains(Type value, CTECBinaryTree<Type> * currentTree);
     void calculateSize(TreeNode <Type> * currentNode);
     
+    
 public:
     CTECBinaryTree();
     ~CTECBinaryTree();

@@ -23,6 +23,7 @@ private:
     void calculateSize(TreeNode <Type> * currentNode);
     TreeNode<Type> * getRightMostChild(CTECBinaryTree * leftSubTree);
     TreeNode<Type> * getLeftMostChild(CTECBinaryTree * rightSubTree);
+    void remove(TreeNode<Type> * currentNode);
     
     
 public:
@@ -30,7 +31,7 @@ public:
     ~CTECBinaryTree();
     bool insert(const Type& value);
     bool contains(Type value);
-    Type remove(const Type& value);
+    void remove(const Type& value);
     int getHeight();
     int getSize();
     bool isBalanced();

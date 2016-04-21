@@ -17,6 +17,14 @@ CTECBinaryTree<Type> :: CTECBinaryTree()
     size = 0;
 }
 template <class Type>
+CTECBinaryTree<Type> :: ~CTECBinaryTree()
+{
+    while(root != nullptr)
+    {
+        remove(root);
+    }
+}
+template <class Type>
 void CTECBinaryTree<Type> :: inorderTraversal(TreeNode<Type> * currentNode)
 {
  if(currentNode != nullptr)

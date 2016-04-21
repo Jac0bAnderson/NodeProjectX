@@ -218,6 +218,39 @@ void CTECBinaryTree<Type> :: remove(const Type& value)
     }
 }
 template <class Type>
+void CTECBinaryTree<Type> :: remove(TreeNode<Type> * nodeToRemove)
+{
+    TreeNode<Type> * current;
+    TreeNode<Type> * trailing;
+    TreeNode<Type> * temp;
+    if(nodeToRemove == nullptr)
+    {
+        cerr << "you cant do that, because it's empty." << endl;
+    }
+    else if(nodeToRemove-> getRightChild()== nullptr && nodeToRemove->getLeftChild() == nullptr)
+    {
+        temp = nodeToRemove;
+        nodeToRemove == nullptr;
+        delete temp;
+    }
+    else if(nodeToRemove->getRightChild() == nullptr)
+    {
+        temp = nodeToRemove;
+        nodeToRemove = temp-> getLeftChild();
+        delete temp;
+    }
+    else if(nodeToRemove->getLeftChild() == nullptr)
+    {
+        temp = nodeToRemove;
+        nodeToRemove = temp->getRightChild();
+        delete temp;
+    }
+    else
+    {
+        current = getRightMostChild(nodeToRemove-> getLeftMostChild());
+    }
+}
+template <class Type>
 void CTECBinaryTree<Type> :: insert(const Type& value, CTECBinaryTree<Type> * currentTree)
 {
    

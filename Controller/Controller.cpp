@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include<string>
 
+
 using namespace std;
 Controller::Controller()
 {
@@ -28,6 +29,13 @@ Controller::Controller()
 Controller::~Controller()
 {
 
+}
+void Controller :: tryTree()
+{
+    CTECBinaryTree<int> testTree;
+    testTree.insert(7);
+    testTree.insert(10);
+    testTree.insert(-5);
 }
 //called when started
 void Controller :: start()

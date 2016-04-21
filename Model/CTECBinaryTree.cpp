@@ -128,7 +128,7 @@ bool CTECBinaryTree <Type> :: contains(Type value, CTECBinaryTree<Type> * curren
 template <class Type>
 bool CTECBinaryTree <Type> :: insert(const Type& value)
 {
-    TreeNode<Type> * insertedNode(value);
+    TreeNode<Type> * insertedNode(value) = new TreeNode<Type>(value);
     TreeNode<Type> * current;
     TreeNode<Type> * trailingCurrent;
     assert(insertedNode != nullptr);

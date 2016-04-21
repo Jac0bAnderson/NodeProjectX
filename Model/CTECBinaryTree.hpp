@@ -8,7 +8,14 @@
 
 #ifndef CTECBinaryTree_hpp
 #define CTECBinaryTree_hpp
-
+#include "../Model/Node.h"
+#include "../Model/Node.cpp"
+#include "../Model/ArrayNode.h"
+#include "../Model/ArrayNode.cpp"
+#include "../Model/CTECArray.h"
+#include "../Model/CTECArray.cpp"
+#include "../Model/Timer.h"
+#include "../Model/CTECBinaryTree.cpp"
 #include "TreeNode.cpp"
 template <class Type>
 class CTECBinaryTree
@@ -24,6 +31,7 @@ private:
     TreeNode<Type> * getRightMostChild(CTECBinaryTree * leftSubTree);
     TreeNode<Type> * getLeftMostChild(CTECBinaryTree * rightSubTree);
     void remove(TreeNode<Type> * nodeToRemove);
+    void tryTree();
     
     
 public:

@@ -24,6 +24,7 @@ int getSize();
 void  addToFront(const Type& value);
 void addToEnd(const Type& value);
 void addAtIndex(int index, Type value);
+Type getAtIndex(int index);
 Type getFront();
 Type getEnd();
 Type getFromIndex(int index);

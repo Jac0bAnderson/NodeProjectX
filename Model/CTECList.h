@@ -18,6 +18,7 @@ ArrayNode<Type> *end;
 void calculatedSize();
 void swap(int indexOne, int indexTwo);
 public:
+    
 CTECList();
 ~CTECList();
 int getSize();

@@ -10,6 +10,8 @@
 #define Graph_hpp
 #include <set>
 #include <stdio.h>
+#include <queue>
+#include <iostream>
 template <class Type>
 class Graph
 {
@@ -18,10 +20,12 @@ private:
     bool edges [MAXIMUM] [MAXIMUM];
     Type labels [MAXIMUM];
     int manyVertices;
+    void depthFirstTraversal(Graph<Type> currentGraph, int vertex, bool * markedVertices);
 public:
     Graph();
     ~Graph();
-    
+    void depthFirstTraversal(Graph<Type> currentGraph, int vertex);
+    void breadthFirstTraversal(Graph<Type> currentGraph, int vertex);
     void addVertex(const Type& label);
     void addEdge(int source, int target);
     void removeEdge(int source, int target);

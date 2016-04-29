@@ -104,7 +104,7 @@ void Graph<Type> :: depthFirstTraversal(Graph<Type> currentGraph, int vertex, bo
     markedVertices[vertex] = true;
     cout << currentGraph[vertex] << endl;
     
-    for(setIterator = connections.begin(); setIterator != connections.endl(); setIterator++)
+    for(setIterator = connections.begin(); setIterator != connections.end(); setIterator++)
     {
         if(!markedVertices[*setIterator])
         {
@@ -129,7 +129,7 @@ void Graph<Type> :: breadthFirstTraversal(Graph<Type> currentGraph, int vertex)
     {
         connections = currentGraph.neighbors(vertexQueue.front());
         vertexQueue.pop();
-        for(setIterator = connections.begin(); setIterator != connections.endl(); setIterator++)
+        for(setIterator = connections.begin(); setIterator != connections.end(); setIterator++)
         {
             if(!markedVertices[*setIterator])
             {

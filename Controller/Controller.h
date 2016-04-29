@@ -16,7 +16,7 @@
 #include "../Model/ArrayNode.cpp"
 #include "../Model/CTECArray.cpp" 
 #include "../Model/CTECList.cpp"
-
+#include "../Model/CTECBinaryTree.cpp"
 
 using namespace std;
 class Controller
@@ -28,7 +28,7 @@ private:
  //  ArrayNo<string> otherArrayNode;
 	//CTECArray<string> * myStringArray;
     void tryGraph();
-    void tyTree();
+    void tryTree();
     int * mergeData;
 	CTECList<int> * numbers;
 	CTECArray<int> * notHipsterInts;

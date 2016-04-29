@@ -7,11 +7,7 @@
 
 //Import section
 #include "Controller.h"//imports the controllers header file
-#include "../Model/Timer.h"
-#include "../Model/Node.cpp"
-#include "../Model/ArrayNode.cpp"
-#include "../Model/CTECArray.cpp"
-#include "../Model/CTECList.cpp"
+
 
 #include <stdlib.h>
 #include<string>
@@ -80,13 +76,13 @@ void Controller :: start()
 	//	cout << "the content at index " << index << "are " << myStringArray->get(index) << endl;
 	//}
 }
-void Controller:: swap(int first, int second)
+void Controller:: swap(int first, int last)
 {
     int temp = mergeData[first];
     mergeData[first] = mergeData[last];
-    mergeData[last];
+    mergeData[last] = temp;
 }
-int Controller:: partition(int size, int last)
+int Controller:: partition(int first, int last)
 {
     int pivot;
     int index, smallIndex;

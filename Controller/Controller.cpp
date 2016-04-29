@@ -7,6 +7,12 @@
 
 //Import section
 #include "Controller.h"//imports the controllers header file
+#include "../Model/Timer.h"
+#include "../Model/Node.cpp"
+#include "../Model/ArrayNode.cpp"
+#include "../Model/CTECArray.cpp"
+#include "../Model/CTECList.cpp"
+
 #include <stdlib.h>
 #include<string>
 
@@ -216,6 +222,22 @@ void Controller :: checkSort()
     sortTimer.displayTimerInformation();
     sortTimer.resetTimer();
     sortTimer.startTimer();
+}
+void Controller ::tryGraph()
+{
+    Graph<int> testerGraph;
+    testerGraph.addVertex(45);
+    testerGraph.addVertex(3);
+    testerGraph.addVertex(14);
+    testerGraph.addVertex(51);
+    testerGraph.addVertex(33);
+    testerGraph.addVertex(17);
+    testerGraph.addVertex(43);
+    
+    testerGraph.addEdge(0,1);
+    testerGraph.addEdge(1,0);
+    testerGraph.addEdge(9,9);
+    testerGraph.breadthFirstTraversal(testerGraph,0);
 }
 //Tests
 void Controller :: testLists()

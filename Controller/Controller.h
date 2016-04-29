@@ -27,7 +27,8 @@ private:
 	//ArrayNode<string>stringArrayNode;
  //  ArrayNo<string> otherArrayNode;
 	//CTECArray<string> * myStringArray;
-    
+    void tryGraph();
+    void tyTree();
     int * mergeData;
 	CTECList<int> * numbers;
 	CTECArray<int> * notHipsterInts;

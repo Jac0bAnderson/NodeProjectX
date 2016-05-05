@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4643485B1CDB8EE3004A530A /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 464348591CDB8EE3004A530A /* HashTable.cpp */; };
 		465AE2091C99A53D00DE807B /* Controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 465AE1FB1C99A53D00DE807B /* Controller.cpp */; };
 		465AE20A1C99A53D00DE807B /* Runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 465AE1FD1C99A53D00DE807B /* Runner.cpp */; };
 		465AE20B1C99A53D00DE807B /* ArrayNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 465AE1FF1C99A53D00DE807B /* ArrayNode.cpp */; };
@@ -32,6 +33,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		464348591CDB8EE3004A530A /* HashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
+		4643485A1CDB8EE3004A530A /* HashTable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HashTable.hpp; sourceTree = "<group>"; };
 		465AE1F01C99A4BD00DE807B /* NodeProjectX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NodeProjectX; sourceTree = BUILT_PRODUCTS_DIR; };
 		465AE1FB1C99A53D00DE807B /* Controller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Controller.cpp; sourceTree = "<group>"; };
 		465AE1FC1C99A53D00DE807B /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 				4680F93D1CBBF9F4000996E3 /* CTECBinaryTree.hpp */,
 				46A0D0121CCE59F600C85BF6 /* Graph.cpp */,
 				46A0D0131CCE59F600C85BF6 /* Graph.hpp */,
+				464348591CDB8EE3004A530A /* HashTable.cpp */,
+				4643485A1CDB8EE3004A530A /* HashTable.hpp */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				465AE20B1C99A53D00DE807B /* ArrayNode.cpp in Sources */,
 				4680F93E1CBBF9F4000996E3 /* CTECBinaryTree.cpp in Sources */,
 				465AE20D1C99A53D00DE807B /* CTECList.cpp in Sources */,
+				4643485B1CDB8EE3004A530A /* HashTable.cpp in Sources */,
 				465AE20C1C99A53D00DE807B /* CTECArray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

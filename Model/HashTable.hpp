@@ -8,6 +8,7 @@
 
 #ifndef HashTable_hpp
 #define HashTable_hpp
+#include "CTECArray.cpp"
 template <class Type>
 class HashTable
 {

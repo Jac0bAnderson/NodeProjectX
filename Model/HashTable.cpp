@@ -11,10 +11,10 @@
 template <class Type>
 HashTable<Type> ::  HashTable()
 {
-    this-> capacity = 10;
+    this-> capacity = 101;
     this-> efficiencyPercentage = .667;
     this-> size = 0;
-    this-> internalStorage = new Type(capacity);
+    this-> internalStorage = new Type[capacity];
 }
 template <class Type>
 HashTable<Type> :: ~HashTable<Type>()
@@ -24,7 +24,7 @@ HashTable<Type> :: ~HashTable<Type>()
 template <class Type>
 int HashTable<Type> :: getSize()
 {
-    return this -> size();
+    return this -> size;
 }
 template <class Type>
 void HashTable<Type> :: add(const Type& value)
@@ -41,7 +41,7 @@ void HashTable<Type> :: add(const Type& value)
         {
             while(internalStorage [positionToInsert] != nullptr)
             {
-                positionToInsert = (positionToInsert +1) % size;
+                positionToInsert = (positionToInsert +1) % capacity;
             }
             internalStorage[positionToInsert] = value;
         }

@@ -19,16 +19,17 @@ private:
     int size;
     HashNode<Type> * internalStorage;
     
-    int findPosition(HashNode<Type> * currentNode);
+    int findPosition(HashNode<Type> currentNode);
     int handleCollision(HashNode<Type> * currentNode);
     void updateSize();
+    int getNextPrime();
+    bool isPrime(int candidateNumber);
 public:
     HashTable();
     ~HashTable();
     void add(HashNode<Type> * currentNode);
     bool remove(HashNode<Type> * currentNode);
     bool contains(HashNode<Type> * currentNode);
-    int getSize();
-};
+    int getSize();};
 #endif /* HashTable_hpp */
 

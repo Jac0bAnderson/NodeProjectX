@@ -122,7 +122,45 @@ bool HashTable<Type>:: isPrime(int candidateNumber)
     }
     return isPrime;
 }
-
+template <class Type>
+bool HashTable<Type> :: contains(HashNode<Type> currentNode)
+{
+    bool isInTable = false;
+    int index =findPosition(currentNode);
+    while(internalStorage[index] != nullptr && !isInTable)
+    {
+        if(internalStorage[index].getValue() == currentNode.getValue())
+        {
+            isInTable = true;
+        }
+        index = (index + 1) % capacity;
+        
+    }
+    return isInTable;
+}
+template <class Type>
+bool HashTable<Type> :: remove(HashNode<Type> currentNode)
+{
+    bool wasRemoved= false;
+    if(contains(currentNode))
+    {
+        int index = findPosition(currentNode);
+        while(internalStorage[index] != nullptr && !wasRemoved)
+        {
+            if(internalStorage[index].getValue() == currentNode.getValue())
+            {
+                wasRemoved = true;
+                internalStorage[index] = nullptr;
+                size--;
+            }
+            else
+            {
+                index = (index + 1) % capacity;
+            }
+        }
+    }
+    return wasRemoved;
+}
 
 
 

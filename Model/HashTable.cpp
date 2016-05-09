@@ -9,45 +9,58 @@
 #include "HashTable.hpp"
 
 template <class Type>
-HashTable<Type> ::  HashTable()
+HashTable<Type>::HashTable()
 {
-    this-> capacity = 101;
-    this-> efficiencyPercentage = .667;
-    this-> size = 0;
-    this-> internalStorage = new Type[capacity];
+    this->capacity = 10;
+    this->efficiencyPercentage = .667;
+    this->size = 0;
+    this->internalStorage = new HashNode<Type>[capacity];
 }
+
 template <class Type>
-HashTable<Type> :: ~HashTable<Type>()
+int HashTable<Type>::getSize()
+{
+    return this->size;
+}
+
+template <class Type>
+HashTable<Type>::~HashTable<Type>()
 {
     delete [] internalStorage;
 }
+
 template <class Type>
-int HashTable<Type> :: getSize()
+void HashTable<Type>::add(HashNode<Type> * currentNode)
 {
-    return this -> size;
-}
-template <class Type>
-void HashTable<Type> :: add(const Type& value)
-{
-    if(!contains(value))
+    if(!conatins(currentNode))
     {
         if(this->size/this->capacity >= this->efficiencyPercentage)
         {
             updateSize();
         }
-        int positionToInsert = findPosition(value);
+        int insertPosition = findPosition(currentNode);
         
-        if(internalStorage[positionToInsert] != nullptr)
+        if(internalStorage[insertPosition] != nullptr)
         {
-            while(internalStorage [positionToInsert] != nullptr)
+            while (internalStorage[insertPosition] != nullptr)
             {
-                positionToInsert = (positionToInsert +1) % capacity;
+                insertPosition = (insertPosition + 1) % capacity;
             }
-            internalStorage[positionToInsert] = value;
+            internalStorage[insertPosition] = currentNode;
         }
         else
         {
-            internalStorage[positionToInsert] = value;
+            internalStorage[insertPosition] = currentNode;
         }
     }
+}
+
+template <class Type>
+int HashTable<Type>::findPosition(HashNode<Type> currentNode)
+{
+    int position = 0;
+    
+    position = currentNode.getKey() % capacity;
+    
+    return position;
 }

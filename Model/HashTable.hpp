@@ -10,6 +10,7 @@
 #define HashTable_hpp
 #include "CTECArray.cpp"
 #include "HashNode.cpp"
+#include "CTECList.cpp"
 template <class Type>
 class HashTable
 {
@@ -18,18 +19,22 @@ private:
     double efficiencyPercentage;
     int size;
     HashNode<Type> * internalStorage;
+    CTECList<HashNode <Type>> * tableStorage;
     
     int findPosition(HashNode<Type> currentNode);
     int handleCollision(HashNode<Type> * currentNode);
+    
     void updateSize();
+    void updateTableCapacity();
     int getNextPrime();
     bool isPrime(int candidateNumber);
 public:
     HashTable();
     ~HashTable();
     void add(HashNode<Type> * currentNode);
-    bool remove(HashNode<Type> * currentNode);
-    bool contains(HashNode<Type> * currentNode);
+    void addToTable(HashNode <Type> currentNode);
+    bool remove(HashNode<Type> currentNode);
+    bool contains(HashNode<Type> currentNode);
     int getSize();};
 #endif /* HashTable_hpp */
 

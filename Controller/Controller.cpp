@@ -13,123 +13,115 @@
 #include<string>
 
 
-using namespace std;
-Controller::Controller()
+Controller::Controller() {
+    
+    myIntArray = new CTECArray<int>(5);
+    numbers = new CTECList<int>();
+}
+/*
+ * This is the destructor for the NodeController class. Currently nothing is happening in it. I do not fully understand the destructor.
+ */
+Controller::~Controller() {
+    // TODO Auto-generated destructor stub
+}
+/*
+ * This is the start method that is void. We are giving the CTECArray values. Then we print the values out using cout <<.
+ */
+void Controller :: start()
 {
-//this->	intNode.setValue(5);
-//this -> stringArrayNode.setValue("words are fun");
-//this->otherArrayNode.setValue("linked node");
-//stringArrayNode.setNt(&otherArrayNode);
-	//myStringArray = new CTECArray<string>(5);
-
-
-
-	notHipsterInts = new CTECArray<int>(5);
-	numbers = new CTECList<int>();
+    //testTable();
 }
 
-Controller::~Controller()
-{
-
-}
-void Controller :: tryTree()
+void Controller::tryTree()
 {
     CTECBinaryTree<int> testTree;
     testTree.insert(7);
     testTree.insert(10);
     testTree.insert(-5);
+    testTree.insert(15);
+    testTree.insert(89);
+    testTree.insert(-32);
+    testTree.insert(42);
+    
+    
+    cout << "Inorder Traversal" << endl;
+    testTree.inorderTraversal(testTree.getRoot());
+    cout << "Preorder Traversal" << endl;
+    testTree.preorderTraversal(testTree.getRoot());
+    cout << "Postorder Traversal" << endl;
+    testTree.postorderTraversal(testTree.getRoot());
+    cout << " Tree" << endl;
+    cout << testTree.contains(-32) << endl;
+    testTree.remove(-32);
+    cout << "Inorder Traversal" << endl;
+    testTree.inorderTraversal(testTree.getRoot());
+    
 }
-//called when started
-void Controller :: start()
+
+void Controller::testLists()
 {
-    doMergeSort();
-
-	for(int index = 0; index < notHipsterInts->getSize(); index++)
-	{
-		notHipsterInts->set(index, (23* index));
-	}
-	for(int index= 0; index < notHipsterInts->getSize(); index++)
-	{
-		cout << "notHipsterInts at index " << index << notHipsterInts->get(index) << endl;
-	}
-	arrayTimer.stopTimer();
-	arrayTimer.displayTimerInformation();
-	//cout<< intNode.getValue()<<endl;
-	//cout<< stringArrayNode.getvalue()<<endl;
-
-	//sets values
-	//string first = "first comment of the day";
-	//string second = "Tru ";
-	//string third = "rekt";
-	//string fourth = "phat Jonny";
-	//string fifth = "cool kat";
-
-	//sets values to the array
-	//myStringArray->set(0, first);
-	//cout << myStringArray->get(0) << endl;
-	//myStringArray->set(1, second);
-	//myStringArray->set(2, third);
-	//myStringArray->set(3, fourth);
-	//myStringArray->set(4, fifth);
-	//for(int index =0; index < myStringArray->getSize(); index++)
-	//{
-	//	cout << "the content at index " << index << "are " << myStringArray->get(index) << endl;
-	//}
+    CTECList<int> myList;
+    myList.addToFront(7); //Testing addToFront
+    cout << "Get front should be 7 and is: " << myList.getFront() << endl;
+    
+    myList.addAtIndex(1, 56); //Testing add at index
+    cout << "Add at index should be 56 and is: " << myList.getAtIndex(1) << endl;
+    
+    myList.addToEnd(23); //Test add to end
+    cout << "Add to end should be 23 and is: " << myList.getEnd() << endl;
+    
+    myList.set(2, 34); //Testing the set method
+    cout << "Set method should return 23 and is returning: " << myList.getAtIndex(2) << endl;
+    
+    myList.removeFront(); //Testing the removeFront method
+    cout << "There should be 7 in front and front has: " << myList.getFront() << endl;
+    
+    myList.removeAtIndex(2); //Testing the remove at index
+    cout << "The list should be shrunk by one: " << myList.getSize() << endl;
+    
+    myList.removeEnd(); //Testing remove from End method
+    cout << "The end should be 7 and is:  " << myList.getEnd() << endl;
+    
+    cout << "The size of the list is: " << myList.getSize() << endl; //Testing the getSize method
 }
-void Controller:: swap(int first, int last)
+
+void Controller::checkSorts()
 {
-    int temp = mergeData[first];
-    mergeData[first] = mergeData[last];
-    mergeData[last] = temp;
-}
-int Controller:: partition(int first, int last)
-{
-    int pivot;
-    int index, smallIndex;
-    swap(first, (first+last)/2);
-    pivot = mergeData[first];
-    for(index = first + 1; index <= last; index++)
+    /*
+     *Create list of array
+     *fill with random
+     *fill with orderd
+     *start time
+     *sort
+     *stop time
+     *print
+     */
+    
+    CTECArray<int> sortNumArray(5);
+    CTECList<int> sortNumList;
+    int cPlusPLusArray[5000];
+    
+    for(int spot = 0; spot < 5000; spot++)
     {
-        if(mergeData[index]< pivot)
-        {
-            smallIndex++;
-            swap(smallIndex, index);
-        }
+        int randomValue = rand();
+        sortNumArray.set(spot, randomValue);
+        sortNumList.addToEnd(randomValue);
+        cPlusPLusArray[spot] = randomValue;
     }
-    swap(first, smallIndex);
-    return smallIndex;
-}
-void Controller :: doQuick()
-{
-    mergeData = new int [5000];
-    for(int spot =0; spot< 5000; spot++)
-    {
-        int myRandom = rand();
-        mergeData[spot] = myRandom;
-    }
-    Timer mergeTimer;
-    mergeTimer.startTimer();
-    quickSort(mergeData, 49999);
-    mergeTimer.stopTimer();
-    mergeTimer.displayTimerInformation();
-    delete [] mergeData;
-
-}
-void Controller:: quickSort(int first, int last)
-{
-    int pivotIndex;
-    int sizeOne;
-    int sizeTwo;
-    if(first < last)
-    {
-        pivotIndex = partition(first, last);
-        quickSort(data, pivotIndex-1);
-        quickSort(pivotIndex + 1, last);
-        
-    }
+    
+    Timer listTimer;
+    listTimer.startTimer();
+    sortNumList.selectionSort();
+    listTimer.stopTimer();
+    listTimer.displayTimerInfo();
+    listTimer.resetTimer();
+    
+    listTimer.resetTimer();
+    listTimer.startTimer();
+    
 }
 
-void Controller :: doMergeSort()
+void Controller::doMergeSort()
 {
     mergeData = new int[100000000];
     for(int spot = 0; spot < 100000000; spot++)
@@ -151,104 +143,156 @@ void Controller :: doMergeSort()
         cout << mergeData[spot] << ",";
     }
     
-    delete [] mergeData;}
-void Controller :: mergeSort(int dataArray [] , int size)
+    delete [] mergeData;
+}
+
+void Controller::mergeSort(int dataArray[], int size)
 {
-    
     int sizeOne;
     int sizeTwo;
+    
     if(size > 1)
     {
-        sizeOne = size/2;
-        sizeTwo = size-sizeOne;
+        sizeOne = size / 2;
+        sizeTwo = size - sizeOne;
+        
         mergeSort(dataArray, sizeOne);
-        mergeSort(dataArray+sizeOne, sizeTwo);
-        merge(data, sizeOne, sizeTwo);
+        mergeSort(dataArray + sizeOne, sizeTwo);
+        
+        merge(dataArray, sizeOne, sizeTwo);
+        
     }
+    
 }
-void Controller :: merge(int data [], int sizeOne int sizeTwo)
+
+void Controller::merge(int data[], int sizeOne, int sizeTwo)
 {
     int * temp;
     int copied = 0;
-    int copied1 =0;
+    int copied1 = 0;
     int copied2 = 0;
     int index;
-    temp new int [sizeOne + sizeTwo];
+    
+    temp = new int[sizeOne + sizeTwo];
     while ((copied1 < sizeOne) && (copied2 < sizeTwo))
     {
-        if(data[copied1] < data + sizeOne) [copied2] )
+        if(data[copied1] < (data + sizeOne)[copied2])
         {
-            temp[copied++] = data [copied1++];
+            temp[copied++] = data[copied1++];
         }
         else
         {
-            temp[copied++] = (data + sizeOne) [copied2++];
+            temp [copied++] = (data + sizeOne)[copied2++];
         }
     }
-    while(copied < sizeOne)
+    
+    while(copied1 < sizeOne)
     {
         temp[copied++] = data[copied1++];
     }
-    while(copied2 < sizeTwo)
+    
+    while (copied2 < sizeTwo)
     {
-        temp[copied++] = (data + sizeTwo) [copied2++];
+        temp[copied++] = (data + sizeOne) [copied2++];
     }
-    for(index =0; index < sizeOne + sizeTwo; indexx++)
+    
+    for(index = 0; index < sizeOne + sizeTwo; index++)
     {
         data[index] = temp[index];
     }
     delete [] temp;
 }
-void Controller :: checkSort()
+
+void Controller::quickSort(int first, int last)
 {
-    //Create an array and list
-    //fill with random data
-    //sort and time
-    //repeat with ordered data
-    //print results
-    CTECArray<int> numbersInArray(5000);
-    CTECList<int> numberInList;
-    int cPlusPlusArray[5000];
-    for(int spot= 0; spot <5000; spot++)
+    int pivotIndex;
+    int sizeOne;
+    int sizeTwo;
+    if(first <  last)
     {
-        int randomValue = rand();
-        numbersInArray.set(spot, randomValue);
-        numbersInList.addToFront(randomValue);
-        cPlusPlusArray[spot] = randomValue;
+        pivotIndex = partition(first, last);
+        quickSort(first, pivotIndex-1);
+        quickSort(pivotIndex, last);
+        
+    }
+}
+
+int Controller::partition(int first, int last)
+{
+    
+    int pivot;
+    int index, smallIndex;
+    swap(first, (first +last) / 2 );
+    
+    pivot = mergeData[first];
+    smallIndex = first;
+    
+    for(index = first + 1; index <= last; index++)
+    {
+        if(mergeData[index] < pivot)
+        {
+            smallIndex++;
+            swap(smallIndex, index);
+        }
     }
     
-    Timer listTime;
-    listTimer.startTimer();
-    numbersInList.selectionSort();
-    sortTimer.stopTimer();
-    sortTimer.displayTimerInformation();
-    sortTimer.resetTimer();
-    sortTimer.startTimer();
+    swap(first, smallIndex);
+    return smallIndex;
+    
 }
-void Controller ::tryGraph()
+
+void Controller::swap(int first, int last)
 {
-    Graph<int> testerGraph;
-    testerGraph.addVertex(45);
-    testerGraph.addVertex(3);
-    testerGraph.addVertex(14);
-    testerGraph.addVertex(51);
-    testerGraph.addVertex(33);
-    testerGraph.addVertex(17);
-    testerGraph.addVertex(43);
-    
-    testerGraph.addEdge(0,1);
-    testerGraph.addEdge(1,0);
-    testerGraph.addEdge(9,9);
-    testerGraph.breadthFirstTraversal(testerGraph,0);
+    int temp = mergeData[first];
+    mergeData[first] = mergeData[last];
+    mergeData[last] = temp;
 }
-//Tests
-void Controller :: testLists()
+
+void Controller::doQuick()
 {
-    CTECList<int> CList;
     
-    numbers->addToFront(3);
-    cout << "the front should return 3" << CList.getFront() << endl;
+    mergeData = new int[500];
+    for(int spot = 0; spot < 500; spot++)
+    {
+        int randomValue = rand();
+        mergeData[spot] = randomValue;
+    }
+    Timer mergeTimer;
+    mergeTimer.startTimer();
+    mergeSort(mergeData, 500);
+    mergeTimer.stopTimer();
     
-    numbers->addToEnd(6);
-    cout << "the end should return 6" << CList.getEnd() << endl;
+    delete [] mergeData;
+}
+
+void Controller::doGraphs()
+{
+    Graph<int> tester;
+    tester.addVertex(0);
+    tester.addVertex(1);
+    tester.addVertex(2);
+    tester.addVertex(3);
+    tester.addVertex(4);
+    tester.addVertex(5);
+    tester.addVertex(6);
+    tester.addVertex(7);
+    tester.addVertex(8);
+    tester.addVertex(9);
+    tester.addVertex(10);
+    
+    
+    tester.addEdge(0, 1);
+    tester.addEdge(1, 2);
+    tester.addEdge(2, 3);
+    tester.addEdge(3, 4);
+    tester.addEdge(4, 5);
+    tester.addEdge(5, 6);
+    tester.addEdge(6, 7);
+    tester.addEdge(7, 8);
+    tester.addEdge(8, 9);
+    tester.addEdge(9, 10);
+    
+    tester.depthFirstTraversal(tester, 0);
+    tester.breadthFirstTraversal(tester, 0);
+    
 }

@@ -13,17 +13,16 @@ template <class Type>
 class CTECArray
 {
 private:
-	int size;
-	ArrayNode<Type> * head;
+    int size;
+    ArrayNode<Type> * head;
     void swap(int indexOne, int indexTwo);
-    
 public:
-	CTECArray(int size);
-	virtual ~CTECArray();
-	int getSize();
-	Type get(int position);
-	void set(int position, const Type& value);
-    int indexOf(Type searchValue);
+    CTECArray(int size);
+    virtual ~CTECArray();
+    int getSize();
+    Type get(int position);
+    void set(int position, const Type& value);
+    int indexOf(Type value);
     int nextIndexOf(int startingIndex, Type searchValue);
     void selectionSort();
 };

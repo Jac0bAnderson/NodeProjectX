@@ -16,11 +16,11 @@ executionTime = 0;
 
 Timer :: ~Timer()
 {
-cout << fixed;
-cout << setprecision(8);
-
-cout << executionTime << " μs (microseconds) for the code" << endl;
-cout << "which is " << float(executionTime)/CLOCKS_PER_SEC << "seconds" << endl;
+    cout << fixed;
+    cout << setprecision(8);
+    
+    cout << executionTime << " μs (microseconds) for the code " << endl;
+    cout << "Which is " << float(executionTime)/CLOCKS_PER_SEC << " seconds" << endl;
 }
 
 void Timer :: displayTimerInformation()

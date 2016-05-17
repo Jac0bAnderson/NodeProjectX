@@ -27,28 +27,27 @@ private:
 	//ArrayNode<string>stringArrayNode;
  //  ArrayNo<string> otherArrayNode;
 	//CTECArray<string> * myStringArray;
-    void tryGraph();
-    void tryTree();
+    CTECArray<int> * myIntArray;
+    CTECList<int> * numbers;
+    Timer arrayTimer;
     int * mergeData;
-	CTECList<int> * numbers;
-	CTECArray<int> * notHipsterInts;
-	Timer arrayTimer;
-	void testLists();
-    void checkSort();
+    void testLists();
+    void checkSorts();
     void doMergeSort();
-    void doQuickSort();
-    void mergeSort(int dataArray [] , int size);
-    void merge(int data [], int sizeOne, int sizeTwo);
+    void mergeSort(int dataArray[], int size);
+    void merge(int data[], int sizeOne, int sizeTwo);
+    void doBogo();
     void quickSort(int first, int last);
-    int partition(int size, int last);
+    int partition(int first, int last);
     void swap(int first, int second);
-    
-
-	//the public things of the controller.cpp
- public:
-	Controller();
-	virtual ~Controller();
-	void start();
+    void doQuick();
+    void testTable();
+public:
+    Controller();
+    virtual ~Controller();
+    void start();
+    void doGraphs();
+    void tryTree();
 };
 
 #endif /* CONTROLLER_CONTROLLER_H_ */

@@ -16,17 +16,15 @@ class ArrayNode: public Node<Type>
 	//the private of the ArrayNode.cpp
 private:
     
-	ArrayNode * next;
+    ArrayNode * next;
     
-
-	//the public of the ArrayNode.cpp
 public:
-	ArrayNode();
-	ArrayNode(const Type& value);
-	ArrayNode(const Type& value, ArrayNode * next);
-	virtual ~ArrayNode();
-	ArrayNode * getNext();
-	void setNext(ArrayNode * next);
+    ArrayNode(); //Regular constructor
+    ArrayNode(const Type& value);
+    ArrayNode(const Type& value, ArrayNode * next);
+    virtual ~ArrayNode();
+    ArrayNode * getNext();
+    void setNext(ArrayNode * next);
 
 };
 

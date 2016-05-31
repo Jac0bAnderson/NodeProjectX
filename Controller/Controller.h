@@ -11,12 +11,13 @@
 #include <iostream>
 #include <string>
 
-#include "../Model/Timer.h"
+#include "../Model/Timer.cpp"
 #include "../Model/Node.cpp"
 #include "../Model/ArrayNode.cpp"
 #include "../Model/CTECArray.cpp" 
 #include "../Model/CTECList.cpp"
 #include "../Model/CTECBinaryTree.cpp"
+#include "../Model/Graph.cpp"
 
 using namespace std;
 class Controller

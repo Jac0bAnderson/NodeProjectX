@@ -29,7 +29,7 @@ Controller::~Controller() {
  */
 void Controller :: start()
 {
-    //testTable();
+    testTable();
 }
 
 void Controller::tryTree()
@@ -113,7 +113,7 @@ void Controller::checkSorts()
     listTimer.startTimer();
     sortNumList.selectionSort();
     listTimer.stopTimer();
-    listTimer.displayTimerInfo();
+   // listTimer.displayTimerInfo();
     listTimer.resetTimer();
     
     listTimer.resetTimer();
@@ -137,7 +137,7 @@ void Controller::doMergeSort()
     mergeTimer.startTimer();
     mergeSort(mergeData, 5000);
     mergeTimer.stopTimer();
-    mergeTimer.displayTimerInfo();
+    //mergeTimer.displayTimerInfo();
     for(int spot = 0; spot < 100000000; spot++)
     {
         cout << mergeData[spot] << ",";

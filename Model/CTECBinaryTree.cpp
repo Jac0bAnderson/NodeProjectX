@@ -85,17 +85,22 @@ bool CTECBinaryTree <Type> :: contains(Type value)
      Else if the value is not in the root and is greater than root - call contains on right child.
      */
     bool isInTree = false;
-    if(root -> getValue == value)
+    
+    if(root == nullptr)
     {
-        return true;
+        isInTree = false;
     }
-    else if (value < root -> getValue())
+    else if(root->getValue() == value)
     {
-        isInTree = contains(value, root -> getLeftChild());
+        isInTree = true;
+    }
+    else if(value < root->getValue())
+    {
+        isInTree = contains(value,root->getLeftChild());
     }
     else
     {
-        isInTree = contains(value, root -> getRightChild());
+        isInTree = contains(value, root->getRightChild());
     }
     return isInTree;
 }
@@ -111,27 +116,29 @@ bool CTECBinaryTree <Type> :: contains(Type value, TreeNode<Type> * currentTree)
     {
         return false;
     }
-    if(currentTree->getRoot() -> getValue == value)
+    
+    if(root->getValue() == value)
     {
         return true;
     }
-    else if (value < currentTree -> getRroot() -> getValue())
+    else if(value < currentTree->getValue())
     {
-        return  contains(value, currentTree->getRoot-> getLeftChild());
+        return contains(value, currentTree->getLeftChild());
     }
     else
     {
-        return contains(value, currentTree = getRoot() -> getRightChild());
+        return contains(value, currentTree->getRightChild());
     }
-    
 }
 template <class Type>
 bool CTECBinaryTree <Type> :: insert(const Type& value)
 {
-    TreeNode<Type> * insertedNode = new TreeNode<Type>(value);
-    TreeNode<Type> * current;
-    TreeNode<Type> * trailingCurrent;
+    TreeNode<Type>* insertedNode = new TreeNode<Type>(value);
+    TreeNode<Type>* current;
+    TreeNode<Type>* trailingCurrent;
+    
     assert(insertedNode != nullptr);
+    
     if(contains(value))
     {
         return false;
@@ -145,37 +152,42 @@ bool CTECBinaryTree <Type> :: insert(const Type& value)
         else
         {
             current = root;
+            
             while(current != nullptr)
             {
                 trailingCurrent = current;
-                if(current->getValue()>value)
+                
+                if(current->getValue() > value)
                 {
                     current = current->getLeftChild();
                 }
                 else
                 {
-                    current = current ->getRighChild();
+                    current = current->getRightChild();
                 }
             }
+            if(trailingCurrent->getValue() > value)
+            {
+                trailingCurrent->setLeftChild(insertedNode);
+                insertedNode->setParent(trailingCurrent);
+            }
+            else
+            {
+                trailingCurrent->setRightChild(insertedNode);
+            }
+            insertedNode->setParent(trailingCurrent);
         }
-        if(trailingCurrent->getValue() > value)
-        {
-            trailingCurrent->setLeftChild(insertedNode);
-        }
-        else
-        {
-            trailingCurrent->setRightChild(insertedNode);
-        }
-        insertedNode->setParent(trailingCurrent);
-        
         return true;
     }
-}
+
+    }
+
 template<class Type>
 void CTECBinaryTree<Type> :: remove(const Type& value)
 {
-    TreeNode<Type> * current = root;
-    TreeNode<Type> * trailing = current;
+    TreeNode<Type>* current = root;
+    TreeNode<Type>* trailing = current;
+    
     if(!contains(value))
     {
         return;
@@ -185,7 +197,7 @@ void CTECBinaryTree<Type> :: remove(const Type& value)
         while(current != nullptr && current->getValue() != value)
         {
             trailing = current;
-            if(current-> getValue() >value)
+            if(current->getValue() > value)
             {
                 current = current->getLeftChild();
             }
@@ -194,19 +206,19 @@ void CTECBinaryTree<Type> :: remove(const Type& value)
                 current = current->getRightChild();
             }
         }
+        
         if(current == root)
         {
             remove(root);
         }
         else if(trailing->getValue() > value)
         {
-            remove(trailing-> getLeftChild);
+            remove(trailing->getLeftChild());
         }
         else
         {
-            remove(trailing-> getRightChild);
-        }
-        /*
+            remove(trailing->getRightChild());
+        }        /*
          find the node
          check to see how many child nodes
          if 0 
@@ -228,23 +240,24 @@ void CTECBinaryTree<Type> :: remove(const Type& value)
 template <class Type>
 void CTECBinaryTree<Type> :: remove(TreeNode<Type> * nodeToRemove)
 {
-    TreeNode<Type> * current;
-    TreeNode<Type> * trailing;
-    TreeNode<Type> * temp;
+    TreeNode<Type>* current;
+    TreeNode<Type>* trailing;
+    TreeNode<Type>* temp;
+    
     if(nodeToRemove == nullptr)
     {
-        cerr << "you cant do that, because it's empty." << endl;
+        cerr << "Cannot remove empty node" << endl;
     }
-    else if(nodeToRemove-> getRightChild()== nullptr && nodeToRemove->getLeftChild() == nullptr)
+    else if(nodeToRemove->getRightChild() == nullptr && nodeToRemove->getLeftChild() == nullptr)
     {
         temp = nodeToRemove;
-        nodeToRemove == nullptr;
+        nodeToRemove = nullptr;
         delete temp;
     }
     else if(nodeToRemove->getRightChild() == nullptr)
     {
         temp = nodeToRemove;
-        nodeToRemove = temp-> getLeftChild();
+        nodeToRemove = temp->getLeftChild();
         delete temp;
     }
     else if(nodeToRemove->getLeftChild() == nullptr)
@@ -256,12 +269,16 @@ void CTECBinaryTree<Type> :: remove(TreeNode<Type> * nodeToRemove)
     else
     {
         current = nodeToRemove->getLeftChild();
-       // while(current->getRightChild != nullptr)
-       // {
-       //     trailing = current;
-            current = current->getrightChild();
-        //}
+        trailing = nullptr;
+        
+        while(current->getRightChild() != nullptr)
+        {
+            trailing = current;
+            current = current->getRightChild();
+        }
+        
         nodeToRemove->setValue(current->getValue());
+        
         if(trailing == nullptr)
         {
             nodeToRemove->setLeftChild(current->getLeftChild());

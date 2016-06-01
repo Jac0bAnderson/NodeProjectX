@@ -319,7 +319,11 @@ TreeNode<Type> * CTECBinaryTree<Type> :: getLeftMostChild(TreeNode<Type> * right
     return leftNode;
 }
 
-    
+template <class Type>
+TreeNode<Type>* CTECBinaryTree<Type> :: getRoot()
+{
+    return root;
+}
     
 
 

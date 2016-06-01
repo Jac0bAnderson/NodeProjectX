@@ -31,7 +31,34 @@ void Controller :: start()
 {
     testTable();
 }
-
+void  Controller :: testTable()
+{
+    HashTable<int> testTable;
+    HashNode<int> tempArray[10];
+    for (int spot = 0; spot < 10; spot++)
+    {
+        int value = rand();
+        int key = rand();
+        HashNode<int> temp = HashNode<int>(key, value);
+        cout << temp.getValue() << endl;
+        testTable.add(temp);
+        tempArray[spot] = temp;
+    }
+    for (int index = 0; index < 10; index++)
+    {
+        bool test = testTable.contains(tempArray[index]);
+        string result;
+        if (test)
+        {
+            result = "Here";
+        }
+        else
+        {
+            result = "Not Here";
+        }
+        cout << result << endl;
+    }
+}
 void Controller::tryTree()
 {
     CTECBinaryTree<int> testTree;
